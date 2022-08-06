@@ -61,3 +61,13 @@ overlay.addEventListener('click', () => {
 	overlay.classList.remove('show-share');
 	shareModal.classList.remove('show-share');
 });
+
+// download button
+
+window.onload = function() {
+    document.getElementById("download-btn").addEventListener("click", ()=>{
+        const metadataFile = this.document.getElementById("display-metadata");
+        console.log(metadataFile)
+        html2pdf().from("display-metdata").save();
+    })
+}
