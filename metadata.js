@@ -61,3 +61,20 @@ overlay.addEventListener('click', () => {
 	overlay.classList.remove('show-share');
 	shareModal.classList.remove('show-share');
 });
+
+// download button using html2pdf.js
+
+window.onload = function () {
+	document.getElementById("download-btn").addEventListener("click", () => {
+		const metadataFile = this.document.getElementById("display-metadata");
+		console.log(metadataFile)
+		var opt = {
+			margin:       1,
+			filename:     'mymetadata.pdf',
+			image:        { type: 'jpeg', quality: 0.98 },
+			html2canvas:  { scale: 2 },
+			jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+		  };
+		html2pdf().from("display-metdata").set(opt).save();
+	})
+}
